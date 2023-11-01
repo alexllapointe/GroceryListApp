@@ -6,15 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.google.firebase.database.*
 import com.google.firebase.auth.FirebaseAuth
 
 class MainScreen : Fragment() {
@@ -49,7 +45,7 @@ class MainScreen : Fragment() {
         recyclerView.layoutManager = StaggeredGridLayoutManager(
             2,
             StaggeredGridLayoutManager.VERTICAL
-        ) // or any other layout manager
+        )
 
         viewModel.notesList.observe(viewLifecycleOwner, Observer { notesList ->
             mainAdapter.updateNotes(notesList)

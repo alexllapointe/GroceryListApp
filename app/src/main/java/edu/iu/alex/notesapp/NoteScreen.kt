@@ -42,7 +42,7 @@ class NoteScreen : Fragment() {
             }
         })
 
-        // Check if there's a selected note, if not, it's a new note
+        // Check if there's a selected note, if not it's a new note
         if (viewModel.selectedNote.value == null) {
             Log.d("NoteScreen", "Creating a new note")
         }
