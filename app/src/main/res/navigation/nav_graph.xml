@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/main_fragment">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="edu.iu.alex.notesapp.LoginScreen"
+        android:label="login_fragment"
+        app:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginScreen_to_mainFragment"
+            app:destination="@id/main_fragment" />
+        <action
+            android:id="@+id/action_loginScreen_to_registerScreen"
+            app:destination="@id/register_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="edu.iu.alex.notesapp.RegisterScreen"
+        android:label="register_fragment"
+        app:layout="@layout/register_fragment">
+        <action
+            android:id="@+id/action_registerScreen_to_mainFragment"
+            app:destination="@id/main_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/note_fragment"
+        android:name="edu.iu.alex.notesapp.NoteScreen"
+        android:label="note_fragment"
+        app:layout="@layout/note_fragment">
+        <action
+            android:id="@+id/noteFragment_to_mainFragment"
+            app:destination="@id/main_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="edu.iu.alex.notesapp.MainScreen"
+        android:label="main_fragment"
+        app:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/mainFragment_to_NoteFragment"
+            app:destination="@id/note_fragment">
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="description"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/mainFragment_to_userFragment"
+            app:destination="@id/user_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/user_fragment"
+        android:name="edu.iu.alex.notesapp.UserScreen"
+        android:label="user_fragment"
+        app:layout="@layout/user_fragment">
+        <action
+            android:id="@+id/userFragment_to_MainFragment"
+            app:destination="@id/main_fragment" />
+    </fragment>
+
+
+
+</navigation>
