@@ -42,6 +42,14 @@ class RegisterScreen : Fragment() {
         return view
     }
 
+    /**
+     * Method used to register user's email and password with firebase.
+     *
+     *
+     * @param email string
+     * @param password string
+     */
+
     private fun registerUser(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->

@@ -56,6 +56,14 @@ class MainScreen : Fragment() {
         checkIfUserLoggedIn()
     }
 
+    /**
+     * Method used to determine if a user is logged in or not.
+     *
+     * Used when determining what note items (or any note items) should be displayed.
+     *
+     * @param userId string
+     */
+
         fun checkIfUserLoggedIn() {
             if (FirebaseAuth.getInstance().currentUser == null) {
                 emptyTextView.visibility = View.VISIBLE

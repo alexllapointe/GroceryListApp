@@ -49,6 +49,14 @@ class LoginScreen : Fragment() {
         return view
     }
 
+    /**
+     * Method used to authentication user's email and password with firebase.
+     *
+     *
+     * @param email string
+     * @param password string
+     */
+
     private fun loginUser(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->

@@ -36,6 +36,16 @@ class NotesViewModel : ViewModel() {
 
     }
 
+    /**
+     * Method that saves the note into firebase according to the userid.
+     *
+     * This is called when the save button in the 'NoteScreen' class is pressed.
+     *
+     * @param userId string
+     * @param note note
+     * @param onFailure method
+     * @param onSuccess method
+     */
     fun saveNote(userId: String, note: Note, onSuccess: () -> Unit, onFailure: (Exception) -> Unit) {
         val databaseReference = FirebaseDatabase.getInstance().reference.child("users").child(userId).child("notes").child(note.id)
         databaseReference.setValue(note)
@@ -46,11 +56,26 @@ class NotesViewModel : ViewModel() {
                 onFailure(exception)
             }
     }
+
+    /**
+     * Method narrows down the selection of the note based on its ID to delete by calling the 'deleteNote' method.
+     *
+     * This is called when a user wants to delete a note.
+     *
+     *
+     */
+
     fun deleteSelectedNote() {
         selectedNote.value?.let { note ->
             deleteNote(note.id)
         }
     }
+
+    /**
+     * Method that updates the Note list.
+     *
+     * Used refreshing the screen when a user is logged out(not signed in).
+     */
 
     fun refreshNotesList() {
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return

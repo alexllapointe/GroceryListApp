@@ -94,6 +94,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Method used to show the delete dialog.
+     *
+     * Handles delete logic.
+     *
+     */
+
     private fun showDeleteConfirmationDialog() {
         AlertDialog.Builder(this)
             .setTitle("Delete Note")
